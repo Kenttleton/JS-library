@@ -2,37 +2,63 @@ var Advanced = {
 //All types of math solutions
   Math: {
     //Your basic addition
-    add: function (a,b){
+    Add:  (a,b) => {
       var y = a + b;
       return y;
     },
     //Basic Subtraction, a is final b is initial
-    subtract: function(a,b){
+    Subtract: (a,b) => {
       var y = a - b;
       return y;
     },
     //Basic multiplication
-    multiply: function(a,b){
+    Multiply: (a,b) => {
       var y = a * b;
       return y;
     },
-    //Basic division sends the unrounded answer and the remainder
-    divide: function(a,b){
+    //Basic division sends the un-rounded answer and the remainder
+    Divide: (a,b) => {
       var y = a / b;
       var r = a % b;//calculate the remainder
-      var res = {y,r};
+      var res = [y,r];
       return res;
     },
+    //Basic exponential calculation
+    Exponential: (a,b) => {
+      if(b >= 2){
+        var res = 0;
+        for(var i = b-1; i > 0; i--){
+          res += this.Multiply(a,a);
+        }
+        return res;
+      }
+      else if(b == 0){
+        return 1;
+      }
+      else if(b == 1) {
+        return a;
+      }
+      else if(b == -1){
+        return 1 / a;
+      }
+      else {
+        var res = 0;
+        for(var i = 0 - (b+1); i > 0; i--){
+          res += this.Multiply(a,a);
+        }
+        return 1 / res;
+      }
+    },
     //Solve for y given x in an equation format
-    equation: function(e,x){
-      //Use order of opperations to parse the equation and the above functions to calculate
+    Equation: (e,x) => {
+      //PEMDAS
     },
 
   },
 
   //Linear Algebra functions
-  LinAlg: {
-    MultArray: function(theta,x){
+  LinearAlgebra: {
+    MultiplyArray: (theta,x) => {
       if(0 in theta = true && 0 in x == true){
         var arr = [][];
         for(var i = 0; i < theta.length; i++){
@@ -46,12 +72,12 @@ var Advanced = {
   },
 
   //Calculus functions
-  Calc: {
+  Calculus: {
 
   },
 
   //Statistical analysis functions
-  Stats: {
+  Statistics: {
 
   },
 
@@ -60,22 +86,26 @@ var Advanced = {
 
   },
 
-  //Functions that deal with time and timing
+  //functions that deal with time and timing
   Time: {
     //Countdown to 0 timer
-    countdown: function(h,m,s){
+    countdown: (h,m,s) => {
 
     },
     //Countup from zero
-    countup: function(h,m,s){
+    countup: (h,m,s) => {
 
     },
     //Convert to Unix date
-    toUnix: function(natDate){
+    toUnix: (natDate) => {
 
     },
     //convert to natural language date
-    toNatural: function(unixDate){
+    toNatural: (unixDate) => {
+
+    },
+    // Count up stopwatch
+    stopwatch: () => {
 
     }
   },
