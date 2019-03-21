@@ -114,9 +114,28 @@ var Touch = (function(Touch) {
           if (!triggered.tapandhold) {
             if (!halt) event.preventDefault()
             console.log('tap and hold reached')
-            var newEvent = document.createEvent('TouchEvent')
-            newEvent.initEvent('tapandhold', true, true)
-            newEvent.touches[0].deltaTime = res.dt
+            var touchObj = new Touch({
+              identifier: Date.now(),
+              target: el,
+              clientX: res.x2,
+              clientY: res.y2,
+              radiusX: 1,
+              radiusY: 1,
+              rotationAngle: 0,
+              force: 0.5,
+            })
+            var newEvent = new TouchEvent('tapandhold', {
+              cancelable: true,
+              bubbles: true,
+              touches: [touchObj],
+              targetTouches: [touchObj],
+              changedTouches: [touchObj],
+              ctrlKey: false,
+              shiftKey: false,
+              altKey: false,
+              metaKey: false,
+            })
+            newEvent.deltaTime = res.dt
             el.dispatchEvent(newEvent)
             triggered.tapandhold = true
           }
@@ -149,11 +168,29 @@ var Touch = (function(Touch) {
         if (res === null) return
         if (res.dx > buffer && res.dy < 200) {
           if (!halt) event.preventDefault()
-          // console.log('swipe left reached')
-          var newEvent = document.createEvent('TouchEvent')
-          newEvent.initEvent('swipelefttoright', true, true)
-          newEvent.touches[0].velocityX = res.vx
-          newEvent.touches[0].velocityY = res.vy
+          var touchObj = new Touch({
+            identifier: Date.now(),
+            target: el,
+            clientX: res.x2,
+            clientY: res.y2,
+            radiusX: 1,
+            radiusY: 1,
+            rotationAngle: 0,
+            force: 0.5,
+          })
+          var newEvent = new TouchEvent('swipelefttoright', {
+            cancelable: true,
+            bubbles: true,
+            touches: [touchObj],
+            targetTouches: [touchObj],
+            changedTouches: [touchObj],
+            ctrlKey: false,
+            shiftKey: false,
+            altKey: false,
+            metaKey: false,
+          })
+          newEvent.velocityX = res.vx
+          newEvent.velocityY = res.vy
           el.dispatchEvent(newEvent)
           triggered.swipelefttoright = true
         }
@@ -166,10 +203,29 @@ var Touch = (function(Touch) {
         if (res.dx < -buffer && res.dy < 200) {
           if (!halt) event.preventDefault()
           // console.log('swipe right reached')
-          var newEvent = document.createEvent('TouchEvent')
-          newEvent.initEvent('swiperighttoleft', true, true)
-          newEvent.touches[0].velocityX = res.vx
-          newEvent.touches[0].velocityY = res.vy
+          var touchObj = new Touch({
+            identifier: Date.now(),
+            target: el,
+            clientX: res.x2,
+            clientY: res.y2,
+            radiusX: 1,
+            radiusY: 1,
+            rotationAngle: 0,
+            force: 0.5,
+          })
+          var newEvent = new TouchEvent('swiperightoleft', {
+            cancelable: true,
+            bubbles: true,
+            touches: [touchObj],
+            targetTouches: [touchObj],
+            changedTouches: [touchObj],
+            ctrlKey: false,
+            shiftKey: false,
+            altKey: false,
+            metaKey: false,
+          })
+          newEvent.velocityX = res.vx
+          newEvent.velocityY = res.vy
           el.dispatchEvent(newEvent)
           triggered.swiperighttoleft = true
         }
