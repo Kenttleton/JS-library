@@ -113,7 +113,6 @@ var Touch = (function(Touch) {
         timer.timeout = setTimeout(function() {
           if (!triggered.tapandhold) {
             if (!halt) event.preventDefault()
-            console.log('tap and hold reached')
             var touchObj = new Touch({
               identifier: Date.now(),
               target: el,
@@ -202,7 +201,6 @@ var Touch = (function(Touch) {
         if (res === null) return
         if (res.dx < -buffer && res.dy < 200) {
           if (!halt) event.preventDefault()
-          // console.log('swipe right reached')
           var touchObj = new Touch({
             identifier: Date.now(),
             target: el,
@@ -213,7 +211,8 @@ var Touch = (function(Touch) {
             rotationAngle: 0,
             force: 0.5,
           })
-          var newEvent = new TouchEvent('swiperightoleft', {
+          var newEvent = new TouchEvent('swiperighttoleft', {
+            target: el,
             cancelable: true,
             bubbles: true,
             touches: [touchObj],
