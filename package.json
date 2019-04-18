@@ -1,0 +1,29 @@
+{
+  "name": "js-library",
+  "version": "1.0.0",
+  "description": "Collection of JS libraries for extending standard methods",
+  "main": "bin/lib.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build directory.js --out-dir bin --out-file lib.js"
+  },
+  "repository": "git+https://github.com/Kavinci/JS-library.git",
+  "keywords": [
+    "js",
+    "library",
+    "libraries",
+    "math",
+    "date",
+    "calendar",
+    "touch"
+  ],
+  "author": "Kent Utterback",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kavinci/JS-library/issues"
+  },
+  "homepage": "https://github.com/Kavinci/JS-library#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}

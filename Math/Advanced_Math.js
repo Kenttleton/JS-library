@@ -60,8 +60,8 @@ Math.Advanced = (function(Advanced){
   //Linear Algebra functions
   var linearAlgebra = (function(linearAlgebra){
     var multiply = (theta,x) => {
-      if(0 in theta = true && 0 in x == true){
-        var arr = [][];
+      if(theta == true && 0 in x == true){
+        var arr = [];
         for(var i = 0; i < theta.length; i++){
           for(var j = 0; j < theta.length; j++){
             arr[i][j] = theta[i][j] * x[i][j];
